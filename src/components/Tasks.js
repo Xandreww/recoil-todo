@@ -1,10 +1,10 @@
 import { Checkbox, Label } from "@theme-ui/components";
 import React from "react";
 import { useRecoilValue } from "recoil";
-import { getTodos } from "../recoil/selectors";
+import { tasksState } from "../recoil/atoms";
 
 const Tasks = () => {
-  const tasks = useRecoilValue(getTodos);
+  const tasks = useRecoilValue(tasksState);
 
   return (
     <>

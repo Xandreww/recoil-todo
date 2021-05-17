@@ -1,6 +1,7 @@
 import { atom } from "recoil";
+import { getTodos } from "./selectors";
 
-export const todoListState = atom({
-  key: "todoListState",
-  default: [],
+export const tasksState = atom({
+  key: "tasksState",
+  default: getTodos,
 });
