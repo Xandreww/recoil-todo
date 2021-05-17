@@ -1,5 +1,5 @@
 export const gorestApi = "https://gorest.co.in/public-api/";
-export const gorestApiKey = "b478abe59523a45e1e9c940aaaa0a656a1a9bfbb45cc240de462f8b8aed98e47";
+export const gorestApiKey = "1abeda12b24a0adb70e9fd83d0fef533ca4761d1fb4b826a8409a1048719a60a";
 export const gorestUserId = "1627";
 export const gorestApiPostHeaders = {
   "Content-Type": "application/json",

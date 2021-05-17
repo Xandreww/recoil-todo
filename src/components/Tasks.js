@@ -1,7 +1,8 @@
-import { Checkbox, Label } from "@theme-ui/components";
 import React from "react";
 import { useRecoilValue } from "recoil";
 import { tasksState } from "../recoil/atoms";
+import DeleteTask from "./DeleteTask";
+import TaskCheckbox from "./TaskCheckbox";
 
 const Tasks = () => {
   const tasks = useRecoilValue(tasksState);
@@ -11,10 +12,9 @@ const Tasks = () => {
       <h1>Tasks</h1>
       {tasks.map((task) => (
         <div key={task.id} className="task">
-          <Label>
-            <Checkbox defaultChecked={true} checked={task.completed} />
-          </Label>
+          <TaskCheckbox task={task} />
           <p>{task.title}</p>
+          <DeleteTask task={task} />
         </div>
       ))}
     </>
