@@ -1,5 +1,5 @@
 import axios from "axios";
-import { selector } from "recoil";
+import { selector, selectorFamily } from "recoil";
 import { gorestApi, gorestUserId } from "../shared/constants";
 
 export const getTodos = selector({
@@ -10,6 +10,20 @@ export const getTodos = selector({
       return res.data.data;
     } catch (err) {
       console.error(err);
+    }
+  },
+});
+
+export const getTodo = selectorFamily({
+  key: "UserName",
+
+  get: (todoId) => async () => {
+    try {
+      const res = await axios.get(`${gorestApi}todos/${todoId}`);
+      return res.data.data;
+    } catch (err) {
+      console.error(err);
+      return;
     }
   },
 });
