@@ -6,7 +6,6 @@ import { getTodo } from "../recoil/selectors";
 
 const TaskDetails = ({ match }) => {
   const todo = useRecoilValue(getTodo(match.params.id));
-  console.log("todo", todo);
 
   return (
     <Container p={4} bg="muted">

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { selector, selectorFamily } from "recoil";
 import { gorestApi, gorestUserId } from "../shared/constants";
-import { tasksFilterState, tasksState } from "./atoms";
+import { searchTaskState, tasksFilterState, tasksState } from "./atoms";
 
 export const getTodos = selector({
   key: "getTodos",
@@ -32,6 +32,7 @@ export const getFilteredTodos = selector({
   key: "getFilteredTodos",
   get: ({ get }) => {
     const filter = get(tasksFilterState);
+    const searchValue = get(searchTaskState);
     const list = get(tasksState);
 
     switch (filter) {
@@ -39,6 +40,8 @@ export const getFilteredTodos = selector({
         return list.filter((todo) => todo.completed);
       case "Show Uncompleted":
         return list.filter((todo) => !todo.completed);
+      case "Show Filtered":
+        return list.filter((todo) => todo.title.toLowerCase().includes(searchValue));
       default:
         return list;
     }

@@ -1,14 +1,19 @@
 import { Select } from "@theme-ui/components";
-import React from "react";
-import { useRecoilState } from "recoil";
-import { tasksFilterState } from "../recoil/atoms";
+import React, { useEffect } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { searchTaskState, tasksFilterState } from "../recoil/atoms";
 
 const TaskFilters = () => {
   const [filter, setFilter] = useRecoilState(tasksFilterState);
+  const searchValue = useRecoilValue(searchTaskState);
 
   const updateFilter = ({ target: { value } }) => {
     setFilter(value);
   };
+
+  useEffect(() => {
+    searchValue && setFilter("Show Filtered");
+  }, [searchValue, setFilter]);
 
   return (
     <Select value={filter} onChange={updateFilter}>

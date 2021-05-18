@@ -16,7 +16,7 @@ const TaskStas = () => {
       </ul>
       <div>
         <h2>Completed tasks progress: </h2>
-        <Progress max={1} value={totalCompletedNum / totalNum}></Progress>
+        <Progress max={1} value={totalNum ? totalCompletedNum / totalNum : 0}></Progress>
       </div>
     </>
   );

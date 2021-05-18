@@ -10,3 +10,8 @@ export const tasksFilterState = atom({
   key: "tasksFilterState",
   default: "Show All",
 });
+
+export const searchTaskState = atom({
+  key: "searchTaskState",
+  default: "",
+});
