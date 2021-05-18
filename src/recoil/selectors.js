@@ -33,15 +33,19 @@ export const getFilteredTodos = selector({
   get: ({ get }) => {
     const filter = get(tasksFilterState);
     const searchValue = get(searchTaskState);
-    const list = get(tasksState);
+    let list = get(tasksState);
+
+    console.log("searchValue", searchValue);
+
+    if (searchValue) {
+      list = list.filter((todo) => todo.title.toLowerCase().includes(searchValue.toLowerCase()));
+    }
 
     switch (filter) {
       case "Show Completed":
         return list.filter((todo) => todo.completed);
       case "Show Uncompleted":
         return list.filter((todo) => !todo.completed);
-      case "Show Filtered":
-        return list.filter((todo) => todo.title.toLowerCase().includes(searchValue));
       default:
         return list;
     }
