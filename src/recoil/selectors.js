@@ -52,11 +52,13 @@ export const getTodosState = selector({
     const totalNum = todos.length;
     const totalCompletedNum = todos.filter((todo) => todo.completed).length;
     const totalUncompletedNum = totalNum - totalCompletedNum;
+    const totalCharacters = todos.reduce((acc, todo) => acc + todo.title.length, 0);
 
     return {
       totalNum,
       totalCompletedNum,
       totalUncompletedNum,
+      totalCharacters,
     };
   },
 });
