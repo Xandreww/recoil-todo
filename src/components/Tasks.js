@@ -2,11 +2,11 @@ import React from "react";
 import DeleteTask from "./DeleteTask";
 import TaskCheckbox from "./TaskCheckbox";
 import { useRecoilValue } from "recoil";
-import { tasksState } from "../recoil/atoms";
 import { Link } from "react-router-dom";
+import { getFilteredTodos } from "../recoil/selectors";
 
 const Tasks = () => {
-  const tasks = useRecoilValue(tasksState);
+  const tasks = useRecoilValue(getFilteredTodos);
 
   return (
     <>

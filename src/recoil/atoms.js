@@ -5,3 +5,8 @@ export const tasksState = atom({
   key: "tasksState",
   default: getTodos,
 });
+
+export const tasksFilterState = atom({
+  key: "tasksFilterState",
+  default: "Show All",
+});
