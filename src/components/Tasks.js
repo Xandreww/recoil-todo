@@ -11,15 +11,17 @@ const Tasks = () => {
   return (
     <>
       <h1>Tasks</h1>
-      {tasks.map((task) => (
-        <div key={task.id} className="task">
-          <TaskCheckbox task={task} />
-          <Link to={"/task/" + task.id} task={task}>
-            {task.title}
-          </Link>
-          <DeleteTask task={task} />
-        </div>
-      ))}
+      {tasks &&
+        tasks.length > 0 &&
+        tasks.map((task) => (
+          <div key={task.id} className="task">
+            <TaskCheckbox task={task} />
+            <Link to={"/task/" + task.id} task={task}>
+              {task.title}
+            </Link>
+            <DeleteTask task={task} />
+          </div>
+        ))}
     </>
   );
 };

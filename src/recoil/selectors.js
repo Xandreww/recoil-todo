@@ -16,8 +16,7 @@ export const getTodos = selector({
 });
 
 export const getTodo = selectorFamily({
-  key: "UserName",
-
+  key: "getTodo",
   get: (todoId) => async () => {
     try {
       const res = await axios.get(`${gorestApi}todos/${todoId}`);
@@ -30,13 +29,10 @@ export const getTodo = selectorFamily({
 });
 
 export const getFilteredTodos = selector({
-  key: "filteredTodoListState",
+  key: "getFilteredTodos",
   get: ({ get }) => {
     const filter = get(tasksFilterState);
     const list = get(tasksState);
-
-    console.log("filter", filter);
-    console.log("list", list);
 
     switch (filter) {
       case "Show Completed":
@@ -46,5 +42,21 @@ export const getFilteredTodos = selector({
       default:
         return list;
     }
+  },
+});
+
+export const getTodosState = selector({
+  key: "getTodosState",
+  get: ({ get }) => {
+    const todos = get(tasksState);
+    const totalNum = todos.length;
+    const totalCompletedNum = todos.filter((todo) => todo.completed).length;
+    const totalUncompletedNum = totalNum - totalCompletedNum;
+
+    return {
+      totalNum,
+      totalCompletedNum,
+      totalUncompletedNum,
+    };
   },
 });
