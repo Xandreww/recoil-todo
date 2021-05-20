@@ -6,12 +6,16 @@ $footer-color: #d1d5db;
   bottom: 0;
   width: 100%;
   background-color: $footer-color;
-  height: 115px;
+  height: 80px;
   border-top: 3px solid black;
 
   .task-stats-inner {
     max-width: 600px;
     margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
   }
 
   .first-row {

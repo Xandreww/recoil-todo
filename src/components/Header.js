@@ -10,7 +10,7 @@ const Header = () => {
     <div className="header">
       <h1>Andrzej Popek's Todo List</h1>
       <div className="logos">
-        <div>Using</div>
+        <div className="using">Using:</div>
         <a href="https://reactjs.org/" target="blank">
           <img src={reactLogo} alt="Recoil logo" />
         </a>

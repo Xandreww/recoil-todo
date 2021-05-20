@@ -4,13 +4,18 @@ import TaskCheckbox from "./TaskCheckbox";
 import { useRecoilValue } from "recoil";
 import { Link } from "react-router-dom";
 import { getFilteredTodos } from "../recoil/selectors";
+import TaskFilters from "./TaskFilters";
+import "./Tasks.scss";
 
 const Tasks = () => {
   const tasks = useRecoilValue(getFilteredTodos);
 
   return (
     <>
-      <h1>Tasks</h1>
+      <div className="tasks-header">
+        <h1>Tasks</h1>
+        <TaskFilters />
+      </div>
       {tasks &&
         tasks.length > 0 &&
         tasks.map((task) => (

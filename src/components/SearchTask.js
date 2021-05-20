@@ -3,6 +3,9 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import debounce from "lodash.debounce";
 import { useSetRecoilState } from "recoil";
 import { searchTaskState } from "../recoil/atoms";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import "./SearchTask.scss";
 
 const SearchTask = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -38,9 +41,10 @@ const SearchTask = () => {
   }, [debouncedValue, setSearchTaskValue]);
 
   return (
-    <>
-      <Input placeholder="Search for task" onChange={handleSearch} value={searchValue} />
-    </>
+    <div className="search-task input-container">
+      <Input placeholder="Search for tasks" onChange={handleSearch} value={searchValue} />
+      <FontAwesomeIcon className="icon" icon={faSearch} />
+    </div>
   );
 };
 

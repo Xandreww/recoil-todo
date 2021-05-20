@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import { useRecoilCallback, useRecoilValue } from "recoil";
 import { tasksState } from "../recoil/atoms";
 import { gorestApi, gorestApiPostHeaders, gorestUserId } from "../shared/constants";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import "./AddNewTask.scss";
 
 const AddNewTask = () => {
   const [inputValue, setInputValue] = useState("");
@@ -36,8 +39,19 @@ const AddNewTask = () => {
 
   return (
     <>
-      <Input placeholder="Insert a new task" onKeyUp={handleKeyUp} onChange={(e) => setInputValue(e.target.value)} value={inputValue} />
-      <Button onClick={addNewTask}>Add new task</Button>
+      <div className="add-task-header">
+        <h2>Insert a new task:</h2>
+        <Button onClick={addNewTask}>
+          Add new task
+          <FontAwesomeIcon className="plus" icon={faPlus} />
+        </Button>
+      </div>
+      <Input
+        placeholder="Task description"
+        onKeyUp={handleKeyUp}
+        onChange={(e) => setInputValue(e.target.value)}
+        value={inputValue}
+      />
     </>
   );
 };
