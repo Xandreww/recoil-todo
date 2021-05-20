@@ -35,8 +35,6 @@ export const getFilteredTodos = selector({
     const searchValue = get(searchTaskState);
     let list = get(tasksState);
 
-    console.log("searchValue", searchValue);
-
     if (searchValue) {
       list = list.filter((todo) => todo.title.toLowerCase().includes(searchValue.toLowerCase()));
     }

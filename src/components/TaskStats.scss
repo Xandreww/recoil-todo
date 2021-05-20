@@ -1,0 +1,25 @@
+$footer-color: #d1d5db;
+
+.task-stats {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: $footer-color;
+  height: 115px;
+  border-top: 3px solid black;
+
+  .task-stats-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .first-row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .total-characters {
+    text-align: center;
+  }
+}

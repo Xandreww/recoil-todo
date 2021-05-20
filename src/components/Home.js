@@ -5,16 +5,21 @@ import SearchTask from "./SearchTask";
 import TaskFilters from "./TaskFilters";
 import Tasks from "./Tasks";
 import TaskStas from "./TaskStas";
+import Header from "./Header";
+import "./Home.scss";
 
 const Home = () => {
   return (
     <>
-      <Container p={4} bg="muted">
-        <TaskStas />
-        <AddNewTask />
-        <SearchTask />
-        <TaskFilters />
-        <Tasks />
+      <Container className="home" p={4} bg="muted">
+        <div className="home-inner">
+          <Header />
+          <AddNewTask />
+          <SearchTask />
+          <TaskFilters />
+          <Tasks />
+          <TaskStas />
+        </div>
       </Container>
     </>
   );
