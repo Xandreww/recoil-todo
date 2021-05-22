@@ -9,7 +9,7 @@ import Loading from "./components/Loading";
 ReactDOM.render(
   <React.StrictMode>
     <RecoilRoot>
-      <Suspense fallback={Loading}>
+      <Suspense fallback={<Loading />}>
         <App />
       </Suspense>
     </RecoilRoot>

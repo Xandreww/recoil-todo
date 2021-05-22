@@ -5,7 +5,7 @@ import "./Loading.scss";
 const Loading = () => {
   return (
     <Container p={4} bg="muted" className="loading">
-      <Spinner size={100} />
+      <Spinner className="spinner" size={200} />
     </Container>
   );
 };
