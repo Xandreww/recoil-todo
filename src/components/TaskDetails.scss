@@ -1,0 +1,48 @@
+div.task-details {
+  background-image: url("../shared/images/pergamin.png");
+  background-color: antiquewhite;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1000px 100vh;
+  text-align: center;
+  height: 100vh;
+  padding-top: 165px;
+}
+
+.task-details-inner {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+  padding-top: 50px;
+
+  .task-details-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .create-dates {
+    text-align: end;
+    font-family: "Dancing Script", cursive;
+  }
+
+  .link-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black;
+  }
+
+  .completed {
+    color: green;
+  }
+
+  .not-completed {
+    color: brown;
+  }
+
+  .task-details-text {
+    font-family: "Dancing Script", cursive;
+    padding-top: 60px;
+  }
+}
