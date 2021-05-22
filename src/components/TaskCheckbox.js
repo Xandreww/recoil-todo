@@ -1,6 +1,6 @@
-import { Checkbox, Label } from "@theme-ui/components";
-import axios from "axios";
 import React from "react";
+import axios from "axios";
+import { Checkbox, Label } from "@theme-ui/components";
 import { useRecoilCallback, useRecoilValue } from "recoil";
 import { tasksState } from "../recoil/atoms";
 import { gorestApi, gorestApiPostHeaders } from "../shared/constants";

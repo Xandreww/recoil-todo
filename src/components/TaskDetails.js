@@ -5,21 +5,11 @@ import { useRecoilValue } from "recoil";
 import { getTodo } from "../recoil/selectors";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import { formatDate } from "../shared/functions";
 import "./TaskDetails.scss";
 
 const TaskDetails = ({ match }) => {
   const todo = useRecoilValue(getTodo(match.params.id));
-
-  const formatDate = (date) => {
-    const dateObj = new Date(date);
-    const month = dateObj.getUTCMonth() + 1; //months from 1-12
-    const day = dateObj.getUTCDate();
-    const year = dateObj.getUTCFullYear();
-
-    const newdate = year + "/" + month + "/" + day;
-
-    return newdate;
-  };
 
   return (
     <Container p={4} bg="muted" className="task-details">
