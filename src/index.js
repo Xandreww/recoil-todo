@@ -1,10 +1,10 @@
-import React, { Suspense } from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import React, { Suspense } from "react";
 import { RecoilRoot } from "recoil";
-import Loading from "./components/Loading";
+import ReactDOM from "react-dom";
+import reportWebVitals from "./reportWebVitals";
+import Loading from "./components/Loading/Loading";
+import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>

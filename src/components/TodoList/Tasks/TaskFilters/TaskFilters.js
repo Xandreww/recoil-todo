@@ -1,7 +1,7 @@
 import { Select } from "@theme-ui/components";
 import React from "react";
 import { useRecoilState } from "recoil";
-import { tasksFilterState } from "../recoil/atoms";
+import { tasksFilterState } from "../../../../recoil/atoms";
 
 const TaskFilters = () => {
   const [filter, setFilter] = useRecoilState(tasksFilterState);

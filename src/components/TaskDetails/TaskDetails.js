@@ -2,10 +2,10 @@ import React from "react";
 import { Container } from "@theme-ui/components";
 import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import { getTodo } from "../recoil/selectors";
+import { getTodo } from "../../recoil/selectors";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
-import { formatDate } from "../shared/functions";
+import { formatDate } from "../../shared/functions";
 import "./TaskDetails.scss";
 
 const TaskDetails = ({ match }) => {

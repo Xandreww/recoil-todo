@@ -1,8 +1,8 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
-import { getFilteredTodos } from "../recoil/selectors";
-import TaskFilters from "./TaskFilters";
-import Task from "./Task";
+import { getFilteredTodos } from "../../../recoil/selectors";
+import Task from "./Task/Task";
+import TaskFilters from "./TaskFilters/TaskFilters";
 import "./Tasks.scss";
 
 const Tasks = () => {

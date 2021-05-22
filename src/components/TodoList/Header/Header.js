@@ -1,8 +1,8 @@
 import React from "react";
-import reactLogo from "../shared/images/reactLogo.png";
-import recoilLogo from "../shared/images/recoilLogo.svg";
-import goRestLogo from "../shared/images/goRestLogo.png";
-import themeUiLogo from "../shared/images/themeUiLogo.png";
+import reactLogo from "../../../shared/images/reactLogo.png";
+import recoilLogo from "../../../shared/images/recoilLogo.svg";
+import goRestLogo from "../../../shared/images/goRestLogo.png";
+import themeUiLogo from "../../../shared/images/themeUiLogo.png";
 import "./Header.scss";
 
 const Header = () => {

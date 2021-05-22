@@ -1,10 +1,10 @@
 import axios from "axios";
 import React from "react";
 import { useRecoilCallback } from "recoil";
-import { tasksState } from "../recoil/atoms";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { gorestApi, gorestApiPostHeaders, gorestUserId } from "../shared/constants";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { tasksState } from "../../../../../recoil/atoms";
+import { gorestApi, gorestApiPostHeaders, gorestUserId } from "../../../../../shared/constants";
 import "./DeleteTask.scss";
 
 const DeleteTask = ({ task }) => {

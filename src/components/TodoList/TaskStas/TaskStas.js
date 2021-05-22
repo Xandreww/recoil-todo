@@ -1,7 +1,7 @@
 import { Progress } from "@theme-ui/components";
 import React from "react";
 import { useRecoilValue } from "recoil";
-import { getTodosState } from "../recoil/selectors";
+import { getTodosState } from "../../../recoil/selectors";
 import "./TaskStats.scss";
 
 const TaskStas = () => {

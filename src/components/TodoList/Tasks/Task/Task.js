@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import DeleteTask from "./DeleteTask";
-import TaskCheckbox from "./TaskCheckbox";
+import DeleteTask from "./DeleteTask/DeleteTask";
+import TaskCheckbox from "./TaskCheckbox/TaskCheckbox";
 import "./Task.scss";
 
 const Task = ({ task }) => {

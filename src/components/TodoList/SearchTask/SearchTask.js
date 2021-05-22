@@ -1,10 +1,10 @@
-import { Input } from "@theme-ui/components";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import debounce from "lodash.debounce";
+import { Input } from "@theme-ui/components";
 import { useSetRecoilState } from "recoil";
-import { searchTaskState } from "../recoil/atoms";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { searchTaskState } from "../../../recoil/atoms";
+import debounce from "lodash.debounce";
 import "./SearchTask.scss";
 
 const SearchTask = () => {
