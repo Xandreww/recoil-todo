@@ -7,10 +7,12 @@ import "./Task.scss";
 const Task = ({ task }) => {
   return (
     <div className="task pattern-content">
-      <TaskCheckbox task={task} />
-      <Link to={"/task/" + task.id} task={task} className="task-title">
-        {task.title}
-      </Link>
+      <div className="pattern-content-inner">
+        <TaskCheckbox task={task} />
+        <Link to={"/task/" + task.id} task={task} className="task-title">
+          {task.title}
+        </Link>
+      </div>
       <DeleteTask task={task} />
     </div>
   );

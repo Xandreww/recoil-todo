@@ -1,9 +1,11 @@
-import { Close } from "@theme-ui/components";
 import axios from "axios";
 import React from "react";
 import { useRecoilCallback } from "recoil";
 import { tasksState } from "../recoil/atoms";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { gorestApi, gorestApiPostHeaders, gorestUserId } from "../shared/constants";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import "./DeleteTask.scss";
 
 const DeleteTask = ({ task }) => {
   const deleteTodo = useRecoilCallback(({ set }) => async () => {
@@ -25,7 +27,7 @@ const DeleteTask = ({ task }) => {
     }
   });
 
-  return <Close onClick={deleteTodo} />;
+  return <FontAwesomeIcon nClick={deleteTodo} className="delete-task" icon={faTrashAlt} />;
 };
 
 export default DeleteTask;

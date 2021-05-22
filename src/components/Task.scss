@@ -1,6 +1,7 @@
 .task {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   label {
     width: auto;
@@ -9,4 +10,9 @@
 
 .task-title {
   text-decoration: none;
+}
+
+.pattern-content-inner {
+  display: flex;
+  align-items: center;
 }
