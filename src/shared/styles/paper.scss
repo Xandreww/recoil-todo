@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css?family=Dancing+Script");
+
+/* styling paper */
+.tasks-paper {
+  width: 600px;
+  position: relative;
+  margin: 20px auto;
+  margin-bottom: 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: white;
+  box-shadow: 0px 0px 5px 0px #888;
+  height: 580px;
+  overflow-y: auto;
+}
+
+/* styling blue horizontal lines */
+.tasks-pattern {
+  padding-top: 16px;
+  height: 100%;
+  height: auto;
+  background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);
+}
+
+/* styling text content */
+.pattern-content {
+  padding-top: 0px;
+  padding-left: 56px;
+  padding-right: 16px;
+  font-family: "Dancing Script", cursive;
+  font-size: 19px;
+  letter-spacing: 1px;
+  word-spacing: 5px;
+  line-height: 50px;
+}

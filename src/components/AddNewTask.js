@@ -26,6 +26,8 @@ const AddNewTask = () => {
       axios.post(`${gorestApi}users/${gorestUserId}/todos`, payload, config).then((res) => {
         set(tasksState, [...tasks, res.data.data]);
       });
+
+      setInputValue("");
     } catch (err) {
       console.error(err);
     }
