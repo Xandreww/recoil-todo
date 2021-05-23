@@ -41,6 +41,10 @@ div.task-details {
     color: brown;
   }
 
+  .uncomplete {
+    color: red;
+  }
+
   .task-details-text {
     font-family: "Dancing Script", cursive;
     padding-top: 60px;
@@ -66,10 +70,12 @@ div.task-details {
 
   .divider {
     margin: 0 10px;
+    color: black;
   }
 
   .save-changes,
-  .discard-changes {
+  .discard-changes,
+  .manage-task-completion {
     cursor: pointer;
   }
 
@@ -84,5 +90,10 @@ div.task-details {
   .edit-todo {
     text-decoration: none;
     color: blue;
+  }
+
+  .todo-completed-state {
+    display: flex;
+    align-items: center;
   }
 }

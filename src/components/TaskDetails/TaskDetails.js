@@ -1,9 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { Container, Input } from "@theme-ui/components";
-import { Link } from "react-router-dom";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { getTodo } from "../../recoil/selectors";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
 import {
   faArrowLeft,
   faCheckCircle,
@@ -12,12 +7,17 @@ import {
   faTimesCircle,
   faWindowClose,
 } from "@fortawesome/free-solid-svg-icons";
+import { Container, Input } from "@theme-ui/components";
+import { Link } from "react-router-dom";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { getTodo } from "../../recoil/selectors";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { formatDate } from "../../shared/functions";
 import { useHistory } from "react-router-dom";
 import { gorestApi, gorestApiPostHeaders } from "../../shared/constants";
+import { forceTodoUpdate } from "../../recoil/atoms";
 import axios from "axios";
 import "./TaskDetails.scss";
-import { forceTodoUpdate } from "../../recoil/atoms";
 
 const TaskDetails = ({ match }) => {
   const todo = useRecoilValue(getTodo(match.params.id));
@@ -30,7 +30,7 @@ const TaskDetails = ({ match }) => {
     headers: gorestApiPostHeaders,
   };
 
-  const forceUpdate = () => todoUpdates((n) => n + 1);
+  const updateTaskDetailsView = () => todoUpdates((n) => n + 1);
 
   const saveChanges = () => {
     if (inputValue === todo.title) {
@@ -39,7 +39,7 @@ const TaskDetails = ({ match }) => {
     }
 
     patchTaskTitle();
-    forceUpdate();
+    updateTaskDetailsView();
     exitEditMode();
   };
 
@@ -55,11 +55,22 @@ const TaskDetails = ({ match }) => {
     }
   };
 
+  const patchTaskCompletion = async () => {
+    try {
+      const payload = {
+        completed: !todo.completed,
+      };
+
+      await axios.patch(`${gorestApi}todos/${todo.id}`, payload, config);
+      updateTaskDetailsView();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const exitEditMode = () => {
     history.push("/task/" + todo.id);
   };
-
-  useEffect(() => {}, [inputValue]);
 
   return (
     <Container p={4} bg="muted" className="task-details">
@@ -73,13 +84,34 @@ const TaskDetails = ({ match }) => {
           <div className="task-details-icons">
             <div>
               {todo.completed ? (
-                <>
+                <div className="todo-completed-state">
                   <FontAwesomeIcon className="completed mr-10" icon={faCheckCircle} /> completed
-                </>
+                  {isEditMode && (
+                    <div>
+                      <span className="divider">|</span>
+                      <div className="manage-task-completion" onClick={patchTaskCompletion}>
+                        <FontAwesomeIcon className="uncomplete mr-10" icon={faTimesCircle} /> uncomplete task
+                      </div>
+                    </div>
+                  )}
+                </div>
               ) : (
-                <>
+                <div className="todo-completed-state">
                   <FontAwesomeIcon className="not-completed mr-10" icon={faTimesCircle} /> not yet completed
-                </>
+                  {isEditMode && (
+                    <>
+                      <span className="divider">|</span>
+                      <div className="manage-task-completion" onClick={patchTaskCompletion}>
+                        <FontAwesomeIcon
+                          className="completed mr-10"
+                          icon={faCheckCircle}
+                          onClick={patchTaskCompletion}
+                        />{" "}
+                        complete task
+                      </div>
+                    </>
+                  )}
+                </div>
               )}
             </div>
             <div>
@@ -98,7 +130,8 @@ const TaskDetails = ({ match }) => {
               ) : (
                 <>
                   <Link to={"/task/" + todo.id + "/edit"} task={todo} className="edit-todo">
-                    <FontAwesomeIcon className="mr-10" icon={faEdit} /> edit todo
+                    <FontAwesomeIcon className="mr-10" icon={faEdit} />
+                    edit todo
                   </Link>
                 </>
               )}
