@@ -1,7 +1,7 @@
 import axios from "axios";
 import { selector, selectorFamily } from "recoil";
 import { gorestApi, gorestUserId } from "../shared/constants";
-import { searchTaskState, tasksFilterState, tasksState } from "./atoms";
+import { forceTodoUpdate, searchTaskState, tasksFilterState, tasksState } from "./atoms";
 
 export const getTodos = selector({
   key: "getTodos",
@@ -17,15 +17,18 @@ export const getTodos = selector({
 
 export const getTodo = selectorFamily({
   key: "getTodo",
-  get: (todoId) => async () => {
-    try {
-      const res = await axios.get(`${gorestApi}todos/${todoId}`);
-      return res.data.data;
-    } catch (err) {
-      console.error(err);
-      return;
-    }
-  },
+  get:
+    (todoId) =>
+    async ({ get }) => {
+      get(forceTodoUpdate);
+      try {
+        const res = await axios.get(`${gorestApi}todos/${todoId}`);
+        return res.data.data;
+      } catch (err) {
+        console.error(err);
+        return;
+      }
+    },
 });
 
 export const getFilteredTodos = selector({

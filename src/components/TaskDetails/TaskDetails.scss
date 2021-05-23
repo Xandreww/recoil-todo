@@ -45,4 +45,19 @@ div.task-details {
     font-family: "Dancing Script", cursive;
     padding-top: 60px;
   }
+
+  .task-details-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-details-input {
+    max-width: 400px;
+    margin: 60px auto 0 auto;
+  }
+
+  .save-changes {
+    cursor: pointer;
+  }
 }

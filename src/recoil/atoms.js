@@ -15,3 +15,8 @@ export const searchTaskState = atom({
   key: "searchTaskState",
   default: "",
 });
+
+export const forceTodoUpdate = atom({
+  key: "forceTODO",
+  default: 0,
+});
