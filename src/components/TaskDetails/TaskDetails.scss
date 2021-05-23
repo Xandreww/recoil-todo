@@ -33,6 +33,11 @@ div.task-details {
     color: black;
   }
 
+  .task-completion-container {
+    display: flex;
+    align-items: center;
+  }
+
   .completed {
     color: green;
   }
