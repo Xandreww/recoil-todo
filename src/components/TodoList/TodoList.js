@@ -5,13 +5,17 @@ import SearchTask from "./SearchTask/SearchTask";
 import Tasks from "./Tasks/Tasks";
 import TaskStas from "./TaskStas/TaskStas";
 import Header from "./Header/Header";
+import { useRecoilValue } from "recoil";
+import { getTodosState } from "../../recoil/selectors";
 import "./TodoList.scss";
 
-const Home = () => {
+const TodoList = () => {
+  const { totalNum } = useRecoilValue(getTodosState);
+
   return (
     <>
-      <Container className="home" p={4} bg="muted">
-        <div className="home-inner">
+      <Container className={totalNum ? "todo-list" : "todo-list no-todos"} p={4} bg="muted">
+        <div className="todo-list-inner">
           <Header />
           <AddNewTask />
           <SearchTask />
@@ -23,4 +27,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default TodoList;

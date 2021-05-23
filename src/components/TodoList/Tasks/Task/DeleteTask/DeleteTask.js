@@ -27,7 +27,7 @@ const DeleteTask = ({ task }) => {
     }
   });
 
-  return <FontAwesomeIcon nClick={deleteTodo} className="delete-task" icon={faTrashAlt} />;
+  return <FontAwesomeIcon onClick={deleteTodo} className="delete-task" icon={faTrashAlt} />;
 };
 
 export default DeleteTask;

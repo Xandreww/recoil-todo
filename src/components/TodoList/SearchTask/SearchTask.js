@@ -1,15 +1,17 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Input } from "@theme-ui/components";
-import { useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { searchTaskState } from "../../../recoil/atoms";
+import { getTodosState } from "../../../recoil/selectors";
 import debounce from "lodash.debounce";
 import "./SearchTask.scss";
 
 const SearchTask = () => {
   const [searchValue, setSearchValue] = useState("");
   const [debouncedValue, setDebouncedValue] = useState("");
+  const { totalNum } = useRecoilValue(getTodosState);
   const setSearchTaskValue = useSetRecoilState(searchTaskState);
 
   const debouncedSearch = useMemo(
@@ -41,10 +43,14 @@ const SearchTask = () => {
   }, [debouncedValue, setSearchTaskValue]);
 
   return (
-    <div className="search-task input-container">
-      <Input placeholder="Search for tasks" onChange={handleSearch} value={searchValue} />
-      <FontAwesomeIcon className="icon" icon={faSearch} />
-    </div>
+    <>
+      {totalNum > 0 && (
+        <div className="search-task input-container">
+          <Input placeholder="Search for tasks" onChange={handleSearch} value={searchValue} />
+          <FontAwesomeIcon className="icon" icon={faSearch} />
+        </div>
+      )}
+    </>
   );
 };
 

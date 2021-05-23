@@ -1,9 +1,13 @@
-.home {
+.todo-list {
   background-color: aliceblue;
   height: calc(100vh - 80px);
   padding-top: 15px !important;
 
-  .home-inner {
+  &.no-todos {
+    height: 100vh;
+  }
+
+  .todo-list-inner {
     max-width: 600px;
     margin: 0 auto;
   }
