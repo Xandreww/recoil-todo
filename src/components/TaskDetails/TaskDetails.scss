@@ -57,7 +57,32 @@ div.task-details {
     margin: 60px auto 0 auto;
   }
 
-  .save-changes {
+  .task-changes,
+  .save-changes,
+  .discard-changes {
+    display: flex;
+    align-items: center;
+  }
+
+  .divider {
+    margin: 0 10px;
+  }
+
+  .save-changes,
+  .discard-changes {
     cursor: pointer;
+  }
+
+  .save-changes {
+    color: green;
+  }
+
+  .discard-changes {
+    color: red;
+  }
+
+  .edit-todo {
+    text-decoration: none;
+    color: blue;
   }
 }

@@ -4,7 +4,14 @@ import { Link } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { getTodo } from "../../recoil/selectors";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faCheckCircle, faCheckSquare, faEdit, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowLeft,
+  faCheckCircle,
+  faCheckSquare,
+  faEdit,
+  faTimesCircle,
+  faWindowClose,
+} from "@fortawesome/free-solid-svg-icons";
 import { formatDate } from "../../shared/functions";
 import { useHistory } from "react-router-dom";
 import { gorestApi, gorestApiPostHeaders } from "../../shared/constants";
@@ -78,13 +85,19 @@ const TaskDetails = ({ match }) => {
             <div>
               {isEditMode ? (
                 <>
-                  <div className="save-changes" onClick={saveChanges}>
-                    <FontAwesomeIcon className="mr-10" icon={faCheckSquare} /> save changes
+                  <div className="task-changes">
+                    <div onClick={saveChanges} className="save-changes">
+                      <FontAwesomeIcon className="mr-10" icon={faCheckSquare} /> save changes
+                      <span className="divider">|</span>
+                    </div>
+                    <div onClick={() => exitEditMode()} className="discard-changes">
+                      <FontAwesomeIcon className="mr-10" icon={faWindowClose} /> cancel
+                    </div>
                   </div>
                 </>
               ) : (
                 <>
-                  <Link to={"/task/" + todo.id + "/edit"} task={todo}>
+                  <Link to={"/task/" + todo.id + "/edit"} task={todo} className="edit-todo">
                     <FontAwesomeIcon className="mr-10" icon={faEdit} /> edit todo
                   </Link>
                 </>
